@@ -1,0 +1,76 @@
+body {
+    background-color: rgba(20, 24, 29, 255);
+
+}
+
+.navBar {
+    position: relative;
+}
+
+.signinBody {
+    background-image: linear-gradient(to bottom, #1d2328, #14181c);
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signinHead {
+    color: #71818f;
+    font-size: 1.7rem;
+}
+
+.form {
+    background-color: #1d2328;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 300px;
+    align-items: flex-start;
+    border: solid #71818f;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+.label {
+    color: white;
+    margin: 20px;
+    margin-bottom: -5px;
+}
+
+.input {
+    margin: 20px;
+    height: 30px;
+    width: 450px;
+    background-color: #2c3440;
+    border-width: 1px;
+    border-radius: 5px;
+    margin-bottom: 1px;
+    color: #71818f;
+}
+
+.inputActive {
+    background-color: white;
+    color: #1d2328;
+    margin: 20px;
+    height: 30px;
+    width: 450px;
+    border-width: 1px;
+    border-radius: 5px;
+    margin-bottom: 1px;
+}
+
+.row {
+    margin: 50px;
+}
+
+.checkbox {
+    background-color: #2c3440;
+    color: #2c3440;
+}
+
+.ps {
+    color: #71818f;
+    font-size: 0.9rem;
+    margin: 40px;
+}
