@@ -29,6 +29,7 @@ body {
   margin-right: 50px;
   font-weight: bold;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .navItems {
@@ -113,6 +114,10 @@ body {
   color: #f4fcf7;
   font-size: 1.05rem;
   cursor: pointer;
+}
+
+.start:hover {
+  background-color: #11ad38;
 }
 
 .introPs {

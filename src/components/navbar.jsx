@@ -11,7 +11,7 @@ class NavBar extends Component {
 
                     <img className='navLogo' src={ltrboxd} ></img>
 
-                    <a className='navHead'>Letterboxd</a>
+                    <a href='/' className='navHead'>Letterboxd</a>
                     <a href='/sign-in' className='navItems'>SIGN IN</a>
                     <a href='/create-account' className='navItems'>CREATE ACCOUNT</a>
                     <a href='/films' className='navItems'>FILMS</a>

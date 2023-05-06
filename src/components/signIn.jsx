@@ -15,24 +15,24 @@ class SignIn extends Component {
                         <input className='input' />
                         <label className='label'>Password</label>
                         <input className='input' />
-                        {/* 
+
                         <div className='row'>
                             <input type='checkbox' className='checkbox' />
-                            <label className='label'>Remeber me</ label>
+                            <label className='label newLabel'>Remeber me</ label>
 
-
-                        </div> */}
+                            <button className='signinBtn'>SIGN IN</button>
+                        </div>
 
 
                     </form>
 
                     <div className='ps'>
-                        <a href='#'>Reset</a> a lost or forgotten password.</div>
-                </div>
+                        <a href='#' className='reset'>Reset</a> a lost or forgotten password.</div>
+                </div >
 
 
 
-            </React.Fragment>
+            </React.Fragment >
 
         );
     }
