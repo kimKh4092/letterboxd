@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import NavBar from './navbar';
 import '../signin-login.css'
 
-class SignIn extends Component {
-    state = {
-        user: { username: '', password: '', remembered: false },
+class Login extends Component {
 
+    state = {
+        user: { email: '', username: '', password: '', agreement: false }
     }
 
     handleSubmit = e => {
@@ -16,7 +16,7 @@ class SignIn extends Component {
     handleChange = e => {
 
         const user = { ...this.state.user };
-        if (e.currentTarget.name === 'remembered') {
+        if (e.currentTarget.name === 'agreement') {
             user[e.currentTarget.name] = e.currentTarget.checked;
             this.setState({ user });
         }
@@ -24,17 +24,26 @@ class SignIn extends Component {
         else {
             user[e.currentTarget.name] = e.currentTarget.value;
             this.setState({ user });
+
         }
     }
 
     render() {
         return (
             <React.Fragment>
-                <NavBar currentPage='signin' />
+                <NavBar />
                 <div className='signinBody'>
-                    <p className='signinHead'>Sign In</p>
-                    <form className='form' onSubmit={this.handleSubmit} >
-                        <label className='label'>Username or Email</label>
+                    <p className='signinHead'>Join Letterboxd</p>
+                    <form className='LoginForm' onSubmit={this.handleSubmit}>
+                        <label className='label'>Email address</label>
+                        <input className={(this.state.user.email) ? 'inputActive' : 'input'}
+                            id='email'
+                            type='text'
+                            name='email'
+                            value={this.state.user.email}
+                            onChange={this.handleChange} />
+
+                        <label className='label'>Username</label>
                         <input className={(this.state.user.username) ? 'inputActive' : 'input'}
                             id='username'
                             type='text'
@@ -50,28 +59,23 @@ class SignIn extends Component {
                             value={this.state.user.password}
                             onChange={this.handleChange} />
 
-                        <div className='row1'>
+                        <div className='row2'>
                             <input type='checkbox'
                                 className='checkbox'
-                                id='remembered'
-                                name='remembered'
-                                value={this.state.user.remembered}
-                                onChange={this.handleChange}
-                            />
-                            <label className='label newLabel'>Remember me</ label>
-
-                            <button className='signinBtn'>SIGN IN</button>
+                                id='agreement'
+                                name='agreement'
+                                value={this.state.user.agreement}
+                                onChange={this.handleChange} />
+                            <label className='label newLabel'>I'm at least 16 years old and
+                                accept the Terms of Use</ label>
                         </div>
+                        <button className='loginBtn'>SIGN UP</button>
                     </form>
-
-                    <div className='ps'>
-                        <a href='#' className='reset'>Reset</a> a lost or forgotten password.</div>
                 </div >
-
             </React.Fragment >
 
         );
     }
 }
 
-export default SignIn;
+export default Login;

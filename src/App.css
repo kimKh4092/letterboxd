@@ -44,6 +44,7 @@ body {
   color: white;
 }
 
+
 .search {
   margin: 20px;
   background-color: #f5f2f354;
@@ -104,7 +105,7 @@ body {
   font-weight: bold;
 }
 
-.start {
+.start1 {
   width: 270px;
   border: none;
   border-radius: 2.5px;
@@ -114,9 +115,15 @@ body {
   color: #f4fcf7;
   font-size: 1.05rem;
   cursor: pointer;
+
 }
 
-.start:hover {
+.start2 {
+  text-decoration: none;
+  color: #f4fcf7;
+}
+
+.start1:hover {
   background-color: #11ad38;
 }
 

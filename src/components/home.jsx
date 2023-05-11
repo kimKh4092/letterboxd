@@ -4,7 +4,7 @@ import introPic from '../images/rayeLane.png'
 
 
 class Home extends Component {
-    state = {}
+
     render() {
         return (
             <React.Fragment>
@@ -19,12 +19,10 @@ class Home extends Component {
                         <p className='introItem'>Save those you want to see.</p>
                         <p className='introItem'>Tell your friends what’s good.  </p>
 
-                        <button className='start'>GET STARTED — IT‘S FREE!</button>
+                        <button className='start1'><a className='start2' href='/login'>GET STARTED — IT‘S FREE!</a>
+                        </button>
                         <p className='introPs'>The social network for film lovers.</p>
                     </div>
-
-
-
                 </div>
 
             </React.Fragment>

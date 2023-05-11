@@ -32,6 +32,18 @@ body {
     border-radius: 5px;
 }
 
+.LoginForm {
+    background-color: #1d2328;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 450px;
+    align-items: flex-start;
+    border: solid #71818f;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
 .label {
     color: white;
     margin: 20px;
@@ -60,9 +72,14 @@ body {
     margin-bottom: 1px;
 }
 
-.row {
+.row1 {
     margin: 20px;
     margin-top: 50px;
+}
+
+.row2 {
+    margin: 20px;
+    margin-top: 30px;
 }
 
 .checkbox {
@@ -81,10 +98,23 @@ body {
     height: 30px;
     width: 90px;
     border-radius: 2.5px;
+    margin-left: 210px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.loginBtn {
+    background-color: #05c435;
+    border-color: #20d54d;
+    height: 30px;
+    width: 90px;
+    border-radius: 2.5px;
     margin-left: 225px;
     font-weight: bold;
     color: white;
     cursor: pointer;
+    margin: 25px;
 }
 
 .signinBtn:hover {
