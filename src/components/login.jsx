@@ -1,31 +1,27 @@
 import React, { Component } from 'react';
+import Form from './form';
 import NavBar from './navbar';
 import '../signin-login.css'
 
-class Login extends Component {
+class Login extends Form {
 
-    state = {
-        user: { email: '', username: '', password: '', agreement: false }
-    }
+    validate = () => {
+        const errors = {};
 
-    handleSubmit = e => {
-        e.preventDefault();
-        console.log('submitted');
-    }
 
-    handleChange = e => {
-
-        const user = { ...this.state.user };
-        if (e.currentTarget.name === 'agreement') {
-            user[e.currentTarget.name] = e.currentTarget.checked;
-            this.setState({ user });
+        if (this.state.user.email.trim() === '') {
+            errors.email = 'Email is required.'
         }
 
-        else {
-            user[e.currentTarget.name] = e.currentTarget.value;
-            this.setState({ user });
-
+        if (this.state.user.username.trim() === '') {
+            errors.username = 'Username is required.'
         }
+
+        if (this.state.user.password.trim() === '') {
+            errors.password = 'Password is required.'
+        }
+
+        return Object.keys(errors).length === 0 ? null : errors;
     }
 
     render() {
@@ -34,7 +30,7 @@ class Login extends Component {
                 <NavBar />
                 <div className='signinBody'>
                     <p className='signinHead'>Join Letterboxd</p>
-                    <form className='LoginForm' onSubmit={this.handleSubmit}>
+                    <form className={(this.state.errors.username || this.state.errors.password) ? 'LoginForm2' : 'LoginForm1'} onSubmit={this.handleSubmit}>
                         <label className='label'>Email address</label>
                         <input className={(this.state.user.email) ? 'inputActive' : 'input'}
                             id='email'
@@ -43,13 +39,18 @@ class Login extends Component {
                             value={this.state.user.email}
                             onChange={this.handleChange} />
 
+                        {this.state.errors.email && <div className='error'><p className='errorText'>{this.state.errors.email}</p></div>}
+
                         <label className='label'>Username</label>
                         <input className={(this.state.user.username) ? 'inputActive' : 'input'}
                             id='username'
                             type='text'
                             name='username'
                             value={this.state.user.username}
-                            onChange={this.handleChange} />
+                            onChange={this.handleChange}
+                        />
+
+                        {this.state.errors.username && <div className='error'><p className='errorText'>{this.state.errors.username}</p></div>}
 
                         <label className='label'>Password</label>
                         <input className={(this.state.user.password) ? 'inputActive' : 'input'}
@@ -58,6 +59,9 @@ class Login extends Component {
                             name='password'
                             value={this.state.user.password}
                             onChange={this.handleChange} />
+
+                        {this.state.errors.password && <div className='error'><p className='errorText'>{this.state.errors.password}</p></div>}
+
 
                         <div className='row2'>
                             <input type='checkbox'

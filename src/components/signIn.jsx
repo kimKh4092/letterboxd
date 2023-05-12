@@ -1,30 +1,22 @@
 import React, { Component } from 'react';
+import Form from './form';
 import NavBar from './navbar';
 import '../signin-login.css'
 
-class SignIn extends Component {
-    state = {
-        user: { username: '', password: '', remembered: false },
+class SignIn extends Form {
 
-    }
+    validate = () => {
+        const errors = {}
 
-    handleSubmit = e => {
-        e.preventDefault();
-        console.log('submitted');
-    }
-
-    handleChange = e => {
-
-        const user = { ...this.state.user };
-        if (e.currentTarget.name === 'remembered') {
-            user[e.currentTarget.name] = e.currentTarget.checked;
-            this.setState({ user });
+        if (this.state.user.username.trim() === '') {
+            errors.username = 'Username is required.'
         }
 
-        else {
-            user[e.currentTarget.name] = e.currentTarget.value;
-            this.setState({ user });
+        if (this.state.user.password.trim() === '') {
+            errors.password = 'Password is required.'
         }
+
+        return Object.keys(errors).length === 0 ? null : errors;
     }
 
     render() {
@@ -33,7 +25,8 @@ class SignIn extends Component {
                 <NavBar currentPage='signin' />
                 <div className='signinBody'>
                     <p className='signinHead'>Sign In</p>
-                    <form className='form' onSubmit={this.handleSubmit} >
+
+                    <form className={(this.state.errors.username || this.state.errors.password) ? 'form2' : 'form1'} onSubmit={this.handleSubmit} >
                         <label className='label'>Username or Email</label>
                         <input className={(this.state.user.username) ? 'inputActive' : 'input'}
                             id='username'
@@ -42,6 +35,9 @@ class SignIn extends Component {
                             value={this.state.user.username}
                             onChange={this.handleChange} />
 
+                        {this.state.errors.username && <div className='error'><p className='errorText'>{this.state.errors.username}</p></div>}
+
+
                         <label className='label'>Password</label>
                         <input className={(this.state.user.password) ? 'inputActive' : 'input'}
                             id='password'
@@ -49,6 +45,9 @@ class SignIn extends Component {
                             name='password'
                             value={this.state.user.password}
                             onChange={this.handleChange} />
+
+                        {this.state.errors.password && <div className='error'><p className='errorText'>{this.state.errors.password}</p></div>}
+
 
                         <div className='row1'>
                             <input type='checkbox'

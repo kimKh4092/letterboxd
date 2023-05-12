@@ -20,7 +20,7 @@ body {
     font-size: 1.7rem;
 }
 
-.form {
+.form1 {
     background-color: #1d2328;
     display: flex;
     flex-direction: column;
@@ -32,7 +32,7 @@ body {
     border-radius: 5px;
 }
 
-.LoginForm {
+.form2 {
     background-color: #1d2328;
     display: flex;
     flex-direction: column;
@@ -43,6 +43,31 @@ body {
     border-width: 1px;
     border-radius: 5px;
 }
+
+.LoginForm1 {
+    background-color: #1d2328;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 500px;
+    align-items: flex-start;
+    border: solid #71818f;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+.LoginForm2 {
+    background-color: #1d2328;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 600px;
+    align-items: flex-start;
+    border: solid #71818f;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
 
 .label {
     color: white;
@@ -130,4 +155,48 @@ body {
 .reset {
     color: white;
     text-decoration: none;
+}
+
+.error {
+    margin: 22px;
+    margin-top: 0px;
+    height: 35px;
+    width: 452px;
+    border-radius: 2.5px;
+    background-color: #fb8304;
+    animation-name: error;
+    animation-duration: 0.2s;
+
+}
+
+.errorText {
+    color: rgba(255, 255, 255, 0.621);
+    margin: 5px;
+    font-size: 0.9rem;
+    animation-name: errorText;
+    animation-duration: 0.4s;
+
+
+}
+
+@keyframes error {
+    from {
+        height: 0px;
+    }
+
+    to {
+        height: 35px;
+    }
+}
+
+@keyframes errorText {
+    from {
+        color: rgba(255, 255, 255, 0);
+        ;
+    }
+
+    to {
+        color: rgba(255, 255, 255, 0.621);
+
+    }
 }
