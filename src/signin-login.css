@@ -61,7 +61,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 500px;
-    height: 600px;
+    height: 700px;
     align-items: flex-start;
     border: solid #71818f;
     border-width: 1px;
@@ -176,7 +176,6 @@ body {
     animation-name: errorText;
     animation-duration: 0.4s;
 
-
 }
 
 @keyframes error {
@@ -200,3 +199,23 @@ body {
 
     }
 }
+
+/* .generalError {
+    margin-top: 0px;
+    height: 40px;
+    width: 452px;
+    border-radius: 2.5px;
+    background-color: #fb8304;
+    animation-name: gError;
+    animation-duration: 0.2s;
+}
+
+@keyframes gError {
+    from {
+        width: 0px;
+    }
+
+    to {
+        width: 452px;
+    }
+} */

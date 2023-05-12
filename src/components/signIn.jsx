@@ -1,22 +1,35 @@
 import React, { Component } from 'react';
 import Form from './form';
 import NavBar from './navbar';
+import Joi from 'joi-browser';
 import '../signin-login.css'
 
 class SignIn extends Form {
 
+    schema = {
+        username: Joi.string().required(),
+        password: Joi.string().required().min(8)
+    }
+
     validate = () => {
-        const errors = {}
+        const result = Joi.validate(this.state.user, this.schema, { abortEarly: false })
 
-        if (this.state.user.username.trim() === '') {
-            errors.username = 'Username is required.'
+        const errors = {};
+        for (let item of result.error.details) {
+            errors[item.path[0]] = item.message;
         }
 
-        if (this.state.user.password.trim() === '') {
-            errors.password = 'Password is required.'
-        }
+        return errors;
 
-        return Object.keys(errors).length === 0 ? null : errors;
+        // if (this.state.user.username.trim() === '') {
+        //     errors.username = 'Username is required.'
+        // }
+
+        // if (this.state.user.password.trim() === '') {
+        //     errors.password = 'Password is required.'
+        // }
+
+        // return Object.keys(errors).length === 0 ? null : errors;
     }
 
     render() {

@@ -1,27 +1,42 @@
 import React, { Component } from 'react';
 import Form from './form';
 import NavBar from './navbar';
+import Joi from 'joi-browser';
 import '../signin-login.css'
 
 class Login extends Form {
 
+    schema = {
+        email: Joi.string().required().email(),
+        username: Joi.string().required(),
+        password: Joi.string().required().min(8),
+        agreement: Joi.valid(true)
+
+    }
+
     validate = () => {
+
+        const result = Joi.validate(this.state.user, this.schema, { abortEarly: false })
+
         const errors = {};
-
-
-        if (this.state.user.email.trim() === '') {
-            errors.email = 'Email is required.'
+        for (let item of result.error.details) {
+            errors[item.path[0]] = item.message;
         }
+        console.log(errors)
+        return errors;
+        // if (this.state.user.email.trim() === '') {
+        //     errors.email = 'Email is required.'
+        // }
 
-        if (this.state.user.username.trim() === '') {
-            errors.username = 'Username is required.'
-        }
+        // if (this.state.user.username.trim() === '') {
+        //     errors.username = 'Username is required.'
+        // }
 
-        if (this.state.user.password.trim() === '') {
-            errors.password = 'Password is required.'
-        }
+        // if (this.state.user.password.trim() === '') {
+        //     errors.password = 'Password is required.'
+        // }
 
-        return Object.keys(errors).length === 0 ? null : errors;
+        // return Object.keys(errors).length === 0 ? null : errors;
     }
 
     render() {
@@ -29,6 +44,8 @@ class Login extends Form {
             <React.Fragment>
                 <NavBar />
                 <div className='signinBody'>
+
+
                     <p className='signinHead'>Join Letterboxd</p>
                     <form className={(this.state.errors.username || this.state.errors.password) ? 'LoginForm2' : 'LoginForm1'} onSubmit={this.handleSubmit}>
                         <label className='label'>Email address</label>
@@ -73,6 +90,8 @@ class Login extends Form {
                             <label className='label newLabel'>I'm at least 16 years old and
                                 accept the Terms of Use</ label>
                         </div>
+                        {this.state.errors.agreement && <div className='error'><p className='errorText'>Agree to Terms of use</p></div>}
+
                         <button className='loginBtn'>SIGN UP</button>
                     </form>
                 </div >
